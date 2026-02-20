@@ -10,6 +10,11 @@ const page = document.body.getAttribute("data-page");
 //INDEX PAGE
 if (document.getElementById("submit_username")){
 
+if (localStorage.getItem('username') !== null) {
+    document.location.href="custom.html"; 
+} else {
+
+
 document.getElementById("submit_username").onclick = function(){
     
     
@@ -17,6 +22,8 @@ document.getElementById("submit_username").onclick = function(){
     username = document.getElementById("username").value;
     localStorage.setItem("username",username );
     document.location.href="custom.html"; 
+}
+
 }
 }
 
