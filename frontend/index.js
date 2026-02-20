@@ -6,10 +6,11 @@ let username;
 let discord_token1;
 
 const page = document.body.getAttribute("data-page");
-
 //INDEX PAGE
-if (document.getElementById("submit_username")){
 
+if (page === "index"){
+
+    
 if (localStorage.getItem('username') !== null) {
     document.location.href="custom.html"; 
 } else {
@@ -29,17 +30,21 @@ document.getElementById("submit_username").onclick = function(){
 
 //CONFIG PAGE
 
-else if (document.getElementById("save_config")){
+else if (page === "custom"){
 
 document.getElementById("save_config").onclick = function() {
 
 
 
 
-    
+    if (document.getElementById("discord_token1").value !== ""){  //If the discord token has been provided
+
     discord_token1 = document.getElementById("discord_token1").value;
     localStorage.setItem("discord_token1",discord_token1);
 
+    } else {
+    alert("Please input a discord token")   
+    }
 }
 
 
@@ -57,7 +62,7 @@ document.getElementById("access_dashboard").onclick = function() {
 
 //DASHBOARD
 
-else if (document.getElementById("save_config")){
+else if (page === "dashboard"){
 
     
 }
